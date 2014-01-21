@@ -1,31 +1,29 @@
-
-  1 How to compile WinV
- =======================
+Compile WinV
+============
 
  Change directory to winv/src/ and compile the client:
  
-  javac -d ../client/classes/ Client.java
+<code>javac -d ../client/classes/ Client.java</code>
  
  Compile the server:
  
-  javac -d ../bin/ WinV.java   
+<code>javac -d ../bin/ WinV.java</code>
 
  Compile the rmi stubs and skeletons: 
 
-  rmic -d ../bin/ rmiserver.RMIServer
-  rmic -d ../bin/ rmiserver.RMILogin
+<code>rmic -d ../bin/ rmiserver.RMIServer</code>
+<code>rmic -d ../bin/ rmiserver.RMILogin</code>
   
- Copy the files RMIServer_Stub.class and RMILogin_Stub.class
- from winv/bin/rmiserver/ to winv/client/classes/
+ Copy the files <code>RMIServer_Stub.class</code> and <code>RMILogin_Stub.class</code>
+ from <code>winv/bin/rmiserver/</code> to <code>winv/client/classes/</code>
 
- Then change directory to winv/client/classes/
+ Then change directory to <code>winv/client/classes/</code>
  and put all client files in a jar archive: 
 
-  jar cf ../httproot/Client.jar *
+<code>jar cf ../httproot/Client.jar *</code>
 
-
-  2 How to add a new user
- =========================
+Add a new user
+==============
  
  Initially WinV contains no user data. Therefor a user has
  to be added before the system can be used.
@@ -33,7 +31,7 @@
  Change directory to winv/bin/ and start the server
  using the following command line options:
 
-  java WinV -adduser
+<code>java WinV -adduser</code>
 
  Enter user name and password when requested. The new
  user is added or updated in the system.
@@ -43,8 +41,8 @@
  can be modified manually or deleted completely. 
 
 
-  3 How to start the server
- ===========================
+Start the server
+================
 
  The easiest way is to execute the file winv/winv.bat
  (The batch file works on Windows and Unix systems)
@@ -52,26 +50,26 @@
  Another way is to change directory to winv/bin/
  and start the server using:
 
-  java WinV [-http <portnr>] [-rmi <portnr> | -normi] [-adduser]
+<code>java WinV [-http &lt;portnr&gt;] [-rmi &lt;portnr&gt; | -normi] [-adduser]</code>
 
  Command line options:
 
-  -http <portnr>   
+<code>-http &lt;portnr&gt;</code>
 
  Specifies which port to run the http server on. (default = 8080)
 
-  -rmi <portnr>   
+<code>-rmi &lt;portnr&gt;</code>   
  
  Specifies which port to run the rmiregistry on. (default = 1099)
   
-  -normi
+<code>-normi</code>
 
  Tells winv to use an external rmiregistry that is
  already running on the system.
 
 
-  4 How to connect to the server
- ================================
+Connect to the server
+=====================
 
  The http address of the server is displayed when the 
  server is started. This address is simply entered in
@@ -79,22 +77,22 @@
  unable to run winv the appletviewer can be used
  instead:
 
-  appletviewer <http address>
+<code>appletviewer &lt;http address&gt;</code>
 
  The applet consumes a lot of memory. This can cause the
  appletviewer to crash. If that happends simply increase
  the maximum memory heap size by passing the command line 
- option -J-Xmx<number of megabytes>m to the appletviewer.
+ option <code>-J-Xmx&lt;number of megabytes&gt;m</code> to the appletviewer.
  For example:
  
-  appletviewer -J-Xmx100m <http address>
+<code>appletviewer -J-Xmx100m &lt;http address&gt;</code>
 
 
-  5 How to update the javadoc documentation
- ===========================================
+Update the javadoc documentation
+================================
 
- Change directory to winv/src/
+ Change directory to <code>winv/src/</code>.
  Run javadoc with the following command line options:	
   
-  javadoc -private -author -version -d ../docs/javadoc *
+<code>javadoc -private -author -version -d ../docs/javadoc *</code>
 
