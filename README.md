@@ -44,10 +44,7 @@ Add a new user
 Start the server
 ================
 
- The easiest way is to execute the file winv/winv.bat
- (The batch file works on Windows and Unix systems)
-
- Another way is to change directory to winv/bin/
+ Change directory to <code>winv/bin/</code>
  and start the server using:
 
 <code>java WinV [-http &lt;portnr&gt;] [-rmi &lt;portnr&gt; | -normi] [-adduser]</code>
